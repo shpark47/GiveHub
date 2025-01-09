@@ -66,13 +66,14 @@ h3.board_title {
    display: flex;
 }
 /* 공통영역 end */
-header {
-   width: 94%;
+.navbar{
+   width: 80%;
    padding: 0 3%;
-   position: relative;
+/*    position: relative; */
    height: 80px;
    line-height: 80px;
-   z-index: 1;
+   position:relative;
+   z-index: 999;
    background: rgba(255, 255, 255, 0.5);
 }
 
@@ -169,7 +170,7 @@ section#section_01 {
    padding: 1rem 2.8rem;
 }
 /* section01(main) end */
-.right_containcer {
+.right_container {
    width: 87.5%;
    float: right;
    padding: 4rem 0;
