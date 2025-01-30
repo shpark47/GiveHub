@@ -32,10 +32,8 @@ public class MemberController {
     }
 
     @PostMapping("/member/login")
-    public String login(Member m, Model model,HttpSession session) {
-//    	System.out.println(bcrypt.encode(m.getMemPwd()));
+    public String login(Member m, Model model) {
     	Member loginUser = mService.login(m);
-//        System.out.println(loginUser);
         model.addAttribute("loginUser", loginUser);
         if(loginUser != null && bcrypt.matches(m.getMemPwd(), loginUser.getMemPwd())) {
             if (loginUser.getMemType().equals("2")){
@@ -180,11 +178,6 @@ public class MemberController {
     	return "/member/findmyid";
     }
     
-    @PostMapping("/member/findMyId")
-    public void findMyId(@RequestParam("name") String name) {
-    	
-    }
-    
     @GetMapping("/findmyidsuccess")
     public String findMyIdSuccess(@RequestParam("email") String email , Model model) {
     	String memId = mService.findIdByEmail(email);
@@ -193,7 +186,6 @@ public class MemberController {
     	model.addAttribute("memId",memId);
     	
     	return "/member/findmyidsuccess";
-    	
     }
     
     @GetMapping("/findpassword")
@@ -204,11 +196,9 @@ public class MemberController {
     @PostMapping("/temporaryPwd")
     @ResponseBody
     public HashMap<String,String> temporaryPwd(@RequestParam("email") String email) {
-//    	System.out.println("들어온 이메일은 " + email);
     	
     	String tempPwd = tempPwdMk();
     	String encodePwd =  bcrypt.encode(tempPwd);
-    	
     	
     	int updatePwdCode = mService.updateTempPwd(email,encodePwd);
     	String memName = mService.findMemNameByEmail(email);
@@ -228,19 +218,14 @@ public class MemberController {
     	}
     }
     
-    
     @GetMapping("/findmypasswordsuccess")
     public String findMyPwdSuccess(@RequestParam("pwd") String pwd ,@RequestParam("memName") String memName, Model model) {
     	System.out.println("잘 들어옴" + pwd);
     	System.out.println("아주 잘 들어옴 " + memName);
     	model.addAttribute("memName",memName);
     	model.addAttribute("memPwd",pwd);
-    	
     	return "/member/findpasswordsuccess";
-    	
     }
-    
-    
     
     //임시 비번 생성 메소드
     private String tempPwdMk() {
@@ -252,10 +237,7 @@ public class MemberController {
     	for(int i=0;i<length;i++) {
     		password.append(chars.charAt(random.nextInt(chars.length())));
     	}
-    	
-    	
     	return password.toString();
-    	
     }
 
     @GetMapping("/member/delete")
@@ -269,7 +251,4 @@ public class MemberController {
         }
 
     }
-    
-    
-    
 }

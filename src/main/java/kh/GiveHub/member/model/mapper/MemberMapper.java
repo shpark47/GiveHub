@@ -19,7 +19,6 @@ public interface MemberMapper {
 
     int adminMemberUpdate(Member m);
 
-
 	int adminMemberDelete(Member m);
 
     int checkId(String id);

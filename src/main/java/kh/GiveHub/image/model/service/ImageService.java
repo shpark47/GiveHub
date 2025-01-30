@@ -59,9 +59,6 @@ public class ImageService {
 	        
 			try {
 				Files.copy(Paths.get(sourcePath), Paths.get(destPath), StandardCopyOption.REPLACE_EXISTING);
-//				Files.move(Paths.get(sourcePath), Paths.get(destPath));
-				
-				
 				Image img = new Image();
 				img.setImgPath("C:/GiveHub/upload/");
 				img.setImgName(fileName.substring(fileName.lastIndexOf("_")+1));

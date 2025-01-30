@@ -29,8 +29,6 @@ public class DonationService {
         return mapper.selectCategory(map);
     }
 
-
-
     public Donation selectDonation(int doNo, Integer id) {
         Donation d = mapper.selectDonation(doNo);
         if (d != null && id != null && d.getMemNo()!=id) {

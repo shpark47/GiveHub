@@ -1,12 +1,10 @@
 package kh.GiveHub.donation.controller;
 
-
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import jakarta.servlet.http.HttpServletResponse;
 import kh.GiveHub.news.model.service.NewsService;
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -143,94 +140,7 @@ public class DonationController {
 		}else {
 			throw new MemberException("게시글 상세보기를 실패하셨습니다.");
 		}
-
-
-
-
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	@GetMapping("/donation/new")
 	@ResponseBody
@@ -253,15 +163,4 @@ public class DonationController {
 		response.setContentType("application/json; charset=UTF-8");
 		return array.toString();
 	}
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -47,7 +47,6 @@ public class MemberService {
 
 	public int checkIdDuplication(String email) {
 		return mapper.checkIdDuplication(email);
-		
 	}
 
 	public int editMemberInfo(Member m) {

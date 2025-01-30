@@ -72,26 +72,6 @@
         ]]>
     </select>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <select id="selectDonation">
         select *
         from donation
@@ -107,25 +87,6 @@
         where do_no = #{doNo}
     </update>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--    <select id="selectNew" resultType="donation">-->
 <!--        <![CDATA[-->
 <!--        SELECT *-->
@@ -137,22 +98,5 @@
 <!--        WHERE ROWNUM <= 5;-->
 <!--        ]]>-->
 <!--    </select>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </mapper>
 

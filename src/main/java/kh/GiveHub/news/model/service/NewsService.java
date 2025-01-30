@@ -15,10 +15,6 @@ import lombok.RequiredArgsConstructor;
 public class NewsService {
     private final NewsMapper mapper;
 
-    public News selectNews(String nNo) {
-        return mapper.selectNews(nNo);
-    }
-
     public ArrayList<News> selectNewsList() {
         return mapper.selectNewsList();
     }
@@ -56,7 +52,6 @@ public class NewsService {
 	public int insertNews(News n) {
 		return mapper.insertNews(n);
 	}
-
 
     public News newsDetail(int newsNo) {return mapper.newsDetail(newsNo);}
 }
