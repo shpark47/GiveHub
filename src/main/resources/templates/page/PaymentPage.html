@@ -2,40 +2,75 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/reset.css" rel="stylesheet" type="text/css">
-    <link href="/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/css/navBar.css" rel="stylesheet" type="text/css">
-    <link href="/css/page.css" rel="stylesheet" type="text/css">
-    <title>기부 페이지</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        .container input[type="radio"],
-        .container input[type="text"] {
-            margin: 10px 0;
-        }
-        .main_menu_wrap a {
-            color: #1a1a1a !important;
-        }
-        .login_wrap button {
-            background: none;
-            color: #1a1a1a !important;
-            border: none;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/reset.css" rel="stylesheet" type="text/css">
+<link href="/css/common.css" rel="stylesheet" type="text/css">
+<link href="/css/navBar.css" rel="stylesheet" type="text/css">
+<link href="/css/page.css" rel="stylesheet" type="text/css">
+<title>기부 페이지</title>
+<style>
+body {
+    min-height: calc(100vh - 247px);
+}
+.container.payment_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container input[type="radio"],
+.container input[type="text"] {
+    margin: 10px 6px 10px 0;
+}
+.main_menu_wrap a {
+    color: #1a1a1a !important;
+}
+.login_wrap button {
+    background: none;
+    color: #1a1a1a !important;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+input#donor-name {
+    font-size: 1.8rem;
+    width: 167px;
+    font-weight: 500;
+    border: none;
+}
+input#donor-name:focus{
+    outline: none;
+}
+.choose_custom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.choose_custom span {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-right: 1.2rem;
+}
+.dona_mem {
+    font-size: 1.8rem;
+}
+button#payBtn {
+    margin-top: 2rem;
+}
+.choose_custom label, .text_style {
+    font-size: 1.2rem;
+}
+</style>
 </head>
 <body>
 <div th:replace="~{/common/navbar.html :: navbar}"></div>
 <script src="/js/common.js"></script>
-    <div class="container">
+    <div class="container payment_container">
         <form action="/pay" method="post">
             <div class="dona_mem">
                 <label for="donor-name">기부자</label>
@@ -44,19 +79,29 @@
             <p style="visibility: hidden;">[[${session.loginUser.memNo}]]</p>
             <p id="doNo" hidden>[[${doNo}]]</p>
             <p id="memNo" hidden>[[${session.loginUser.memNo}]]</p>
-            <p>테스트테스트의미없는테스트</p>
-            <div>
-                <input type="radio" id="amount1" name="amount" value="10000">
-                <label for="amount1">1만원</label>
-                <input type="radio" id="amount2" name="amount" value="30000">
-                <label for="amount2">3만원</label>
-                <input type="radio" id="amount3" name="amount" value="50000">
-                <label for="amount3">5만원</label>
+            <div class="choose_custom">
+                <span>
+                    <input type="radio" id="amount1" name="amount" value="10000">
+                    <label for="amount1">1만원</label>
+                </span>
+                <span>
+                    <input type="radio" id="amount2" name="amount" value="30000">
+                    <label for="amount2">3만원</label>
+                </span>
+                <span>
+                    <input type="radio" id="amount3" name="amount" value="50000">
+                    <label for="amount3">5만원</label>
+                </span>
                 <br>
-                <input type="radio" id="amount4" name="amount" value="100000">
-                <label for="amount4">10만원</label>
-                <input type="radio" id="amount5" name="amount" value="200000">
-                <label for="amount5">20만원</label>
+                <span>
+                    <input type="radio" id="amount4" name="amount" value="100000">
+                    <label for="amount4">10만원</label>
+                </span>
+                <span>
+                    <input type="radio" id="amount5" name="amount" value="200000">
+                    <label for="amount5">20만원</label>
+                </span>
+
             </div>
             <div class="text_style">
                 <label for="custom-amount">직접입력</label>

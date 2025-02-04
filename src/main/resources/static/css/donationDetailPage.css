@@ -98,6 +98,10 @@ p.donation_data_small {
     transform: translateX(-50%);
 }
 
+span.edit_delete_btn {
+    float: right;
+}
+
 button#doanteBtn {
     padding: 0.8rem 3.2rem;
     font-size: 1.1rem;
@@ -110,24 +114,13 @@ button#doanteBtn {
     margin: 6rem 0 2rem;
 }
 
-button#newsWriteBtn{
+button#newsWriteBtn, button#editBtn{
     padding: 0.8rem 3.2rem;
     font-size: 1.1rem;
-    background-color: #5cc78d;
+    background-color: #fff;
     font-weight: 500;
-    color: white;
-    border: none;
-    border-radius: 9px;
-    cursor: pointer;
-    margin: 6rem 0 2rem;
-}
-button#editBtn{
-    padding: 0.8rem 3.2rem;
-    font-size: 1.1rem;
-    background-color: #5cc78d;
-    font-weight: 500;
-    color: white;
-    border: none;
+    color: #4caf75;
+    border: 1px solid #4caf75;
     border-radius: 9px;
     cursor: pointer;
     margin: 6rem 0 2rem;
@@ -136,10 +129,10 @@ button#editBtn{
 button#deleteBtn{
     padding: 0.8rem 3.2rem;
     font-size: 1.1rem;
-    background-color: #442632;
+    background-color: #fff;
     font-weight: 500;
-    color: white;
-    border: none;
+    color: #606060;
+    border: 1px solid #898989;
     border-radius: 9px;
     cursor: pointer;
     margin: 6rem 0 2rem;
@@ -150,18 +143,16 @@ button#doanteBtn:hover {
 }
 
 button#newsWriteBtn:hover {
-    background-color: #4db575; /* hover 시 색상 변경 */
+    font-weight: 500;
 }
 
 button#editBtn:hover {
-    background-color: #4db575; /* hover 시 색상 변경 */
+    font-weight: 500;
 }
 
 button#deleteBtn:hover {
-    background-color: #381f27; /* hover 시 색상 변경 */
+    font-weight: 500;
 }
-
-
 
 div#floating_btn {
     display: inline-block;
