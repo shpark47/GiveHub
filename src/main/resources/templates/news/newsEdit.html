@@ -2,36 +2,50 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>소식글 수정</title>
     <link href="/css/reset.css" rel="stylesheet" type="text/css">
     <link href="/css/common.css" rel="stylesheet" type="text/css">
     <link href="/css/navBar.css" rel="stylesheet" type="text/css">
+    <link href="/css/donationDetailPage.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>
     <style>
-        #submitBtn {
-            padding: 10px 20px;
-            font-size: 14px;
-            background-color: #5cc78d;
+        #thumbnailDiv{
+            background-image: url("/img/harmony_logo.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 15%;
+            box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.1);
+        }
+        .btn-lg{
+            padding: 0.8rem 3.2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 9px;
             cursor: pointer;
+            margin: 6rem 0 2rem;
         }
-        #submitBtn:hover {
-            background-color: #4caf75;
+        #submitBtn{
+            background-color: #5cc78d;
         }
-        .main { 
-            margin-top: 15rem;
-            padding-left: 100px;
-            padding-right: 100px;
+        #submitBtn:hover{
+            background-color: #4db575;
         }
-        #thumbnailDiv{
-            width: 400px;
-            height: 250px;
+        #backBtn{
+            background-color: rgb(129, 118, 118);
         }
-        .sec1{
-            display: flex;
-            flex-direction: row;
+        #backBtn:hover{
+            background-color: rgb(101, 92, 92);
+        }
+        .donation_info_text_wrap ul{
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e6e6e6;
+            margin-bottom: 4rem !important;
+        }
+        .donation_info_text_wrap input{
+            width: 180px;
+            height: 40px;
         }
     </style>
 </head>
@@ -59,8 +73,8 @@
         </div>
         <div>
             썸네일 
-            <button id="thumbBtn">넣기</button>
-            <div id="thumbnailDiv" width="425px" height="300px">
+            <button class="Btn-sm" id="thumbBtn">넣기</button>
+            <div id="thumbnailDiv">
                 <img id="thumbPre" th:src="${n.thumbnailPath}">
             </div>
         </div>
@@ -71,8 +85,8 @@
         <textarea id="newsContent" name="newsContent">
         </textarea>
         <div id="buttonDiv">
-            <button type="button" id="editBtn">수정 완료</button>
-            <button type="button" id="backBtn">뒤로가기</button>
+            <button class="Btn-lg" type="button" id="editBtn">수정 완료</button>
+            <button class="Btn-lg" type="button" id="backBtn">뒤로가기</button>
         </div>
     </div>
 </div>

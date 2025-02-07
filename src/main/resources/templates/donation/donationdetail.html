@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/css/reset.css" rel="stylesheet" type="text/css">
 <link href="/css/common.css" rel="stylesheet" type="text/css">
 <link href="/css/donationDetailPage.css" rel="stylesheet" type="text/css">
 <link href="/css/navBar.css" rel="stylesheet" type="text/css">
 <link href="/css/donationList.css" rel="stylesheet" type="text/css">
+
 <style>
-    .donation_content img{
-        width: auto !important;
-    }
     .main_menu_wrap a {
         color: #1a1a1a !important;
     }
@@ -21,6 +20,9 @@
         font-size: 1rem;
         font-weight: 500;
         cursor: pointer;
+    }
+    .donation_content img{
+        width: auto !important;
     }
 
     tbody .selectlist:hover {
@@ -134,13 +136,13 @@
 
         <th:block th:if="${session.loginUser != null}">
             <span class="edit_delete_btn">
-                <button id="newsWriteBtn" type="button" onclick="newsWrite()">
+                <button th:if="${session.loginUser.memNo == d.memNo}" id="newsWriteBtn" type="button" onclick="newsWrite()">
                     소식글 작성
                 </button>
                 <button th:if="${session.loginUser.memNo == d.memNo}" id="editBtn" type="button" onclick="doEdit()">
                     수정
                 </button>
-                <button id="deleteBtn" type="button" onclick="openModal('deleteModal')">
+                <button class="delete_btn" th:if="${session.loginUser.memNo == d.memNo}" type="button" onclick="openModal('deleteModal')">
                     삭제
                 </button>
             </span>

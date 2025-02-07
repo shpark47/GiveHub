@@ -43,6 +43,9 @@ public class ImageController {
 	@ResponseBody
 	public boolean deleteTemp(
 			@RequestParam(value="tempFiles", required=false) List<String> list) {
+		if (list == null) {
+			return true;
+		}
 		int length = list.size();
 		System.out.println("list.size() : "+length);
 		System.out.println("list : "+list);

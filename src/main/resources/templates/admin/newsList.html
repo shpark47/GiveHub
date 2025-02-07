@@ -66,6 +66,7 @@
 		document.querySelectorAll('.selectlist').forEach((tr) => {
 			tr.addEventListener('click', () => {
 				selectedNo = tr.children[0].innerText;
+				alert(tr.children[1].innerText + '가 선택되었습니다.');
 				tr = tr.children[0];
 			});
 		});

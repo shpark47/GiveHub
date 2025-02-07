@@ -53,7 +53,7 @@
 <script>
     window.onload = () => {
         let selectedNo = 0;
-        const tr = null;
+        let tr = null;
 
         document.getElementById('delete').addEventListener('click', () => {
             if (selectedNo === 0) {
@@ -71,6 +71,7 @@
         document.querySelectorAll('.selectlist').forEach((tr) => {
             tr.addEventListener('click', () => {
                 selectedNo = tr.children[0].innerText;
+                alert(tr.children[1].innerText + '가 선택되었습니다.');
                 tr = tr.children[0];
             });
         });

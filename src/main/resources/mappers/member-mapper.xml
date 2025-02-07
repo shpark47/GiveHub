@@ -31,7 +31,10 @@
 	</update>
 
 	<insert id="memberJoin">
-		insert into member values(seq_mem_no.nextval, #{memName}, #{memId}, #{memPwd}, #{memAddress}, #{memType}, #{memGrade}, default, #{memConfirm}, #{memEmail})
+		<selectKey  order="BEFORE" resultType="_int" keyProperty="memNo">
+			select seq_mem_no.nextval from dual
+		</selectKey>
+		insert into member values(#{memNo}, #{memName}, #{memId}, #{memPwd}, #{memAddress}, #{memType}, #{memGrade}, default, #{memConfirm}, #{memEmail})
 	</insert>
 	
 	<select id="checkIdDuplication" resultType="_int" parameterType="string">

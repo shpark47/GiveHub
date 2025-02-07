@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kh.GiveHub.member.model.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashMap;

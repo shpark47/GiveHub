@@ -17,4 +17,8 @@ public class PaymentService {
 	public int totalAmount(Integer memNo) {
 		return mapper.totalAmount(memNo);
 	}
+
+	public void memberJoin(int memNo) {
+		mapper.memberJoin(memNo);
+	}
 }

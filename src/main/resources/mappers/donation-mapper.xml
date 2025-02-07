@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kh.GiveHub.donation.model.mapper.DonationMapper">
-    <delete id="deleteDona">
-        delete from donation where do_no = #{no}
-    </delete>
+    <update id="deleteDona">
+        update donation set do_status = 'N' where do_no = #{no}
+    </update>
 
     <select id="selectCategory">
         select * from don_view

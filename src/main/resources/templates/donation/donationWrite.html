@@ -4,8 +4,27 @@
 		<link href="/css/reset.css" rel="stylesheet" type="text/css">
 		<link href="/css/common.css" rel="stylesheet" type="text/css">
 		<link href="/css/navBar.css" rel="stylesheet" type="text/css">
+		<link href="/css/footer.css" rel="stylesheet" type="text/css">
+		<link href="/css/donationDetailPage.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>
 		<style>
+			#thumbnailDiv{
+				background-image: url("/img/harmony_logo.png");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 15%;
+				box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.1);
+      }
+			.btn-lg{
+				padding: 0.8rem 3.2rem;
+				font-size: 1.1rem;
+				font-weight: 500;
+				color: white;
+				border: none;
+				border-radius: 9px;
+				cursor: pointer;
+				margin: 6rem 0 2rem;
+			}
 			.main_menu_wrap a {
 				color: #1a1a1a !important;
 			}
@@ -18,32 +37,44 @@
 				cursor: pointer;
 			}
 			#submitBtn {
-				padding: 10px 20px;
-				font-size: 14px;
-				background-color: #5cc78d;
-				color: white;
-				border: none;
-				border-radius: 4px;
-				cursor: pointer;
+				background: #fff;
+				border: 1px solid #5cc78d;
+				border-radius: 9px;
+				font-size: 1rem;
+				color: #5cc78d;
+				padding: 0.8rem 2rem;
+				font-weight: 400;
 			}
-			#submitBtn:hover {
-				background-color: #4caf75;
+			#submitBtn:hover{
+				font-weight: 600;
 			}
-			.main { 
-				margin-top: 15rem;
-				padding-left: 100px;
-				padding-right: 100px;
+			#backBtn{
+				border: 1px solid #a9a9a9;
+				background: #fff;
+				padding: 0.8rem 2rem;
+				border-radius: 9px;
+				font-size: 1rem;
+				font-weight: 400;
+				color: #898989;
 			}
-			#thumbnailDiv{
-				width: 400px;
-				height: 250px;
+			#backBtn:hover{
+				font-weight: 600;
 			}
-			.sec1{
-				display: flex;
-				flex-direction: row;
+			.donation_info_text_wrap ul{
+				padding-bottom: 1rem;
+				border-bottom: 1px solid #e6e6e6;
+				margin-bottom: 4rem !important;
+			}
+			.donation_info_text_wrap input{
+				width: 180px;
+				height: 40px;
+			}
 
+			h2{
+				font-size: 1.7rem;
+				margin-bottom: 2rem;
+				margin-top: 3rem;
 			}
-
 		</style>
 		<meta charset="UTF-8">
 		<title>후원 모집글 작성</title>
@@ -52,90 +83,74 @@
 	<div th:replace="~{/common/navbar.html :: navbar}"></div>
 	<script src="/js/common.js"></script>
 	
-	<div class="main">
-	<h2>후원 모집</h2>
-		<section class="sec1">
-		<form>
-			<div class="tableDiv">
-			<table>
-				<tr>
-					<td>
-						<label for="title">제목</label>
-					</td>
-					<td>
-						<input type="text" id="doTitle" name="doTitle" 
-						placeholder="프로젝트 제목을 입력하세요" required>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="goal">목표 금액</label>
-					</td>
-					<td>
-						<input type="number" id="fakeGoal" 
-						placeholder="목표 금액을 입력하세요" 
-						step="100" min="0">
-						<input type="hidden" id="doGoal" 
-						name="doGoal">
-						<label>만원</label>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>카테고리</label>
-					</td>
-					<td>
-						<select id="doCategory" name="doCategory">
-							<option value=null>-----------------------------------</option>
-							<option value="child">아동/청소년</option>
-							<option value="animal">동물</option>
-							<option value="old">어르신</option>
-							<option value="family">가족</option>
-							<option value="handicap">장애인</option>
-							<option value="environment">환경</option>
-							<option value="etc">기타</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>후원 시작일</label>
-					</td>
-					<td>
-						<input type="date" id="doStartDate" name="doStartDate">
-						부터
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="doEndDate">후원 마감일</label>
-					</td>
-					<td>
-						<input type="date" id="doEndDate" name="doEndDate" required>
-						까지
-					</td>
-				</tr>
-			</table>
-		</form>
+	<section>
+		<div class="container">
+			<div class="donation_title_wrap">
+				<h2 class="donation_detail_text">후원 모집</h2>
 			</div>
-			<div>
-				<label>썸네일</label>
-				<button type="button" id="thumbBtn">넣기</button>
-				<div id="thumbnailDiv" width="425px" height="300px">
-					<img id="thumbPre" src="/img/board_img05.jpg">
+			<div class="donation_info">
+				<div class="donation_img_wrap" id="thumbnailDiv">
+					<img id="thumbPre" src="">
+				</div>
+				<div class="donaion_info_text_wrap">
+				<form>
+					<ul>
+						<li>
+							<label>썸네일</label>
+							<button class="Btn-sm" type="button" id="thumbBtn">넣기</button>
+						</li>
+						<li>
+							<label>제목</label>
+							<input type="text" id="doTitle" name="doTitle"
+							placeholder="프로젝트 제목을 입력하세요" required>
+						</li>
+						<li>
+							<label>목표 금액</label>
+							<input type="number" id="fakeGoal" 
+							placeholder="목표 금액을 입력하세요" 
+							step="100" min="0">
+							<input type="hidden" id="doGoal" 
+							name="doGoal">
+							<label>만원</label>
+						</li>
+						<li>
+							<label>카테고리</label>
+							<select id="doCategory" name="doCategory">
+								<option value=null>-----------------------------------</option>
+								<option value="child">아동/청소년</option>
+								<option value="animal">동물</option>
+								<option value="old">어르신</option>
+								<option value="family">가족</option>
+								<option value="handicap">장애인</option>
+								<option value="environment">환경</option>
+								<option value="etc">기타</option>
+							</select>
+						</li>
+						<li>
+							<label>후원 시작일</label>
+							<input type="date" id="doStartDate" name="doStartDate">
+							<label>부터</label>
+						</li>
+						<li>
+							<label for="doEndDate">후원 마감일</label>
+							<input type="date" id="doEndDate" name="doEndDate" required>
+							<label>까지</label>
+						</li>
+					</ul>
+				</form>
 				</div>
 			</div>
-		</section>
-		<section class="sec2">
-			<h2>게시글 내용</h2>
-			<input type="hidden" value="donation" id="boardType">
-			<textarea id="doContent" name="doContent" 
-			placeholder="프로젝트에 대한 자세한 설명을 작성하세요" >
-			</textarea>
-			<div class="buttonDiv">
-				<button type="button" id="submitBtn">후원 모집</button>
-				<button type="button" id="backBtn">뒤로가기</button>
+			<div class="donation_content">
+				<input type="hidden" value="donation" id="boardType">
+				<textarea id="doContent" name="doContent" 
+				placeholder="프로젝트에 대한 자세한 설명을 작성하세요" >
+				</textarea>
 			</div>
+			<button class="btn-lg" type="button" id="submitBtn">후원 모집</button>
+			<button class="btn-lg" type="button" id="backBtn">뒤로가기</button>
+		</div>
+		</section>
+
 		<footer>
 			<div th:replace="~{/common/footer.html :: footer_bar}"></div>
 		</footer>

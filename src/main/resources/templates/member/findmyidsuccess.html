@@ -2,46 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
 <meta charset="UTF-8">
-	<link href="/css/reset.css" rel="stylesheet" type="text/css">
-	<link href="/css/common.css" rel="stylesheet" type="text/css">
-	<link href="/css/navBar.css" rel="stylesheet" type="text/css">
-	<link href="/css/page.css" rel="stylesheet" type="text/css">
-	<style>
+<link href="/css/reset.css" rel="stylesheet" type="text/css">
+<link href="/css/common.css" rel="stylesheet" type="text/css">
+<link href="/css/navBar.css" rel="stylesheet" type="text/css">
+<link href="/css/page.css" rel="stylesheet" type="text/css">
+<style>
+	body {
+		height: calc(100vh - 247px);
+	}
+	.page_container{
+		margin: 5rem auto 3rem;
+	}
 
+	.success_custom{
+		border: 1px solid #c1c1c1;
+		border-radius: 19px;
+		padding: 3rem;
+		font-size: 1.2rem;
+		text-align: center;
+		line-height: 1.3em;
+	}
 
-			/* 전체 배경 및 레이아웃 설정 */
-		body {
-			font-family: 'Noto Sans KR', sans-serif;
-			background-color: #f9f9f9;
-			margin: 0;
-			padding: 0;
-		}
+	.mem-Id {
+		color: #2CAC73;
+		font-weight: 500;
+	}
 
-		/* 컨텐츠 정렬 및 박스 스타일 */
-		.idDiv {
-			text-align: center;
-			padding: 30px;
-		}
+	.find_pwd_btn{
+		color: #34D28B;
+		border: 1px solid #34D28B;
+		border-radius: 50px;
+		padding: 0.8rem;
+	}
+	.find_pwd {
+		margin-top: 1rem;
+		padding: 0 2rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+	.find_pwd_btn {
+		color: #34D28B;
+		border: 1px solid #34D28B;
+		border-radius: 50px;
+		padding: 0.5rem 0.7rem;
+		font-size: 0.9rem;
+		margin-left: 0.5rem;
+	}
 
-		h1 {
-			font-size: 2rem;
-			color: #333;
-			margin-top: 2rem;
-		}
-
-		h3 {
-			font-size: 1.2rem;
-			color: #555;
-			margin-bottom: 1.5rem;
-		}
-
-		.mem-Id {
-			color: #ff4500;
-			font-weight: bold;
-		}
-
-
-	</style>
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -49,14 +58,18 @@
 <div th:replace="~{/common/navbar.html :: navbar}"></div>
 <script src="/js/common.js"></script>
 
-	<div class="idDiv">
-		<h1>아이디 찾기</h1>
-		<h3>회원가입 시 입력한 정보로 아이디를 찾을 수 있습니다.</h3>
+<div class="container page_container">
+	<h2>아이디 찾기</h2>
+	<div class="idDiv success_custom">
 		<div>
 			회원님의 아이디는 <span class="mem-Id">[[${memId}]] </span>입니다.
 		</div>
 	</div>
+	<div class="find_pwd">
+		<p>비밀번호가 생각나지 않으신가요?</p><a href="/findpassword" class="find_pwd_btn">비밀번호 찾기</a>
+	</div>
 
+</div>
 <footer>
 	<div th:replace="~{/common/footer.html :: footer_bar}"></div>
 </footer>

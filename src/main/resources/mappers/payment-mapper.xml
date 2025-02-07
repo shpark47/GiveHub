@@ -8,6 +8,9 @@
 	<select id="totalAmount">
 		select sum(pay_amount) from payment where mem_no=#{memNo}
 	</select>
+	<insert id="memberJoin">
+		insert into payment values(seq_pay_no.nextval,0,sysdate,'success',#{memNo},167)
+	</insert>
 </mapper>
 
 

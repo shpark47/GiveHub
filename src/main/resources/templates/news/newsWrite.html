@@ -2,70 +2,132 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>소식글 작성</title>
     <link href="/css/reset.css" rel="stylesheet" type="text/css">
     <link href="/css/common.css" rel="stylesheet" type="text/css">
     <link href="/css/navBar.css" rel="stylesheet" type="text/css">
     <link href="/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="/css/donationDetailPage.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>
     <style>
-        .main_menu_wrap a {
-            color: #1a1a1a !important;
-        }
-
-
-        .login_wrap button {
-            background: none;
-            color: #1a1a1a !important;
-            border: none;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        #main{
-            padding-top: 25rem;
-        }
-        .row{
-            display: flex;
-            flex-direction: row;
-        }
         #thumbnailDiv{
-            width: 400px;
-            height: auto;  
+            background-image: url("/img/harmony_logo.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 15%;
+            box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.1);
         }
+        .btn-lg{
+            padding: 0.8rem 3.2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            cursor: pointer;
+            margin: 6rem 0 2rem;
+        }
+        button#submitBtn {
+            background: #fff;
+            border: 1px solid #5cc78d;
+            border-radius: 9px;
+            font-size: 1rem;
+            color: #5cc78d;
+            padding: 0.8rem 2rem;
+            font-weight: 400;
+        }
+        #submitBtn:hover{
+            font-weight: 600;
+        }
+        #backBtn{
+            border: 1px solid #a9a9a9;
+            background: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 9px;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #898989;
+        }
+        #backBtn:hover{
+            font-weight: 600;
+        }
+        .donation_info_text_wrap ul{
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e6e6e6;
+            margin-bottom: 4rem !important;
+        }
+        .donation_info_text_wrap input{
+            width: 180px;
+            height: 40px;
+        }
+        .info_text{
+            font-size: 1.7rem;
+        }
+
+        .new_write_btn_custom {
+            margin-top: 4rem;
+        }
+        h2 {
+            font-size: 1.7rem;
+            margin-bottom: 2rem;
+            margin-top: 3rem;
+        }
+
     </style>
 </head>
 <body>
 <div th:replace="~{/common/navbar.html :: navbar}"></div>
-
-<div id="main">
-    <div class="row">
-        <div id="inputDiv">
-        <form>
-            제목<br>
-            <input type="text" id="newsTitle" name="newsTitle">
-            <input type="hidden" id="doNo" name="doNo" th:value="${doNo}">
-        </form>
+<section>
+    <div class="container">
+        <div class="donation_title_wrap">
+            <h2 class="donation_detail_text">소식글 작성</h2>
         </div>
-        <div>
-            썸네일 <button id="thumbBtn">넣기</button>
-            <div id="thumbnailDiv">
-                <img id="thumbPre" src="/img/board_img05.jpg">
+        <div class="donation_info">
+            <div class="donation_img_wrap" id="thumbnailDiv">
+                <img id="thumbPre" src="">
+            </div>
+            <div class="donaion_info_text_wrap">
+                <form>
+                    <ul>
+                        <li>
+                            <label>썸네일</label>
+                            <button class="Btn-sm" type="button" id="thumbBtn">넣기</button>
+                        </li>
+                        <li>
+                            <label>제목</label>
+                            <input type="text" id="newsTitle" name="newsTitle">
+                            <input type="hidden" id="doNo" name="doNo" th:value="${doNo}">
+                        </li>
+                        <li>
+                            <label>작성자</label>
+                            <p class="info_text">[[${d.memNo}]]</p>
+                        </li>
+                        <li>
+                            <label>관련 후원</label>
+                            <p class="info_text">[[${d.doTitle}]]</p>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <h2>게시글 내용</h2>
+        <div class="donation_content">
+            <input type="hidden" name="boardType" id="boardType" value="news">
+            <textarea id="newsContent" name="newsContent"
+            placeholder="프로젝트에 대한 자세한 설명을 작성하세요">
+            </textarea>
+        </div>
+        <div class="new_write_btn_custom">
+            <div id="buttonDiv">
+                <button class="Btn-lg" type="button" id="submitBtn">소식글 작성</button>
+                <button class="Btn-lg" type="button" id="backBtn">뒤로가기</button>
             </div>
         </div>
     </div>
-    <div>
-        <h2>게시글 내용</h2>
-        <textarea id="newsContent" name="newsContent">
-        </textarea>
-        <input type="hidden" name="boardType" id="boardType" value="news">
-        <div id="buttonDiv">
-            <button type="button" id="submitBtn">submit</button>
-            <button type="button" id="backBtn">back</button>
-        </div>
-    </div>
-</div>
+
+
+
+</section>
 <script src="/js/common.js"></script>
 <script src="/js/newsWrite.js"></script>
 <footer>

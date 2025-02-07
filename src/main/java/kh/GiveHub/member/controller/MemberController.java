@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import kh.GiveHub.payment.model.service.PaymentService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 public class MemberController {
 
     private final MemberService mService;
+    private final PaymentService pService;
 
     private final BCryptPasswordEncoder bcrypt;
 
@@ -79,6 +81,7 @@ public class MemberController {
         m.setMemPwd(bcrypt.encode(m.getMemPwd()));
         int result = mService.memberJoin(m);
         if (result > 0) {
+            pService.memberJoin(m.getMemNo());
             return "/member/join-success";
         }
         System.out.println(bcrypt);

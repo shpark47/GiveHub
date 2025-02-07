@@ -11,4 +11,5 @@ public interface PaymentMapper {
 
 	int totalAmount(Integer memNo);
 
+    void memberJoin(int memNo);
 }

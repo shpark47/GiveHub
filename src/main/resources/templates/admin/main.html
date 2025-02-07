@@ -147,6 +147,7 @@
             tr.addEventListener('click', () => {
                 userDetail.style.visibility = 'hidden';
                 selectedNo = tr.children[0].innerText;
+                alert(tr.children[2].innerText + '님이 선택되었습니다.');
             });
         });
 
@@ -157,8 +158,10 @@
         });
 
         document.querySelector('#delete').addEventListener('click', ()=>{
-            form.action = '/admin/memberDelete';
-            form.submit();
+            if (confirm('정말 삭제하시겠습니까?')){
+                form.action = '/admin/memberDelete';
+                form.submit();
+            }
         });
     };
 </script>

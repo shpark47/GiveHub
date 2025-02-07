@@ -13,9 +13,9 @@
 		order by news_no
 	</select>
 
-	<delete id="deleteNews">
-		delete from news where news_no = #{nNo}
-	</delete>
+	<update id="deleteNews">
+		update news set news_status = 'N' where news_no = #{nNo}
+	</update>
 
 	<select id="nnewsList">
 		select *

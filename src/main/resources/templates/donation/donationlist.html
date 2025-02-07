@@ -4,8 +4,6 @@
 	<meta charset="UTF-8">
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 	<title>기부 게시판 조회페이지</title>
-	<!--    <link href="../../static/css/reset.css" rel="stylesheet" type="text/css"> -->
-	<!--    <link href="../../static/css/common.css" rel="stylesheet" type="text/css">-->
 	<link href="/css/reset.css" rel="stylesheet" type="text/css">
 	<link href="/css/common.css" rel="stylesheet" type="text/css">
 	<link href="/css/navBar.css" rel="stylesheet" type="text/css">
@@ -71,7 +69,7 @@
 
 				</tbody>
 			</table>
-			<button th:if="${session.loginUser != null}" id="login" class="dona_write" type="button" onclick="location.href='/donation/donationWrite'">
+			<button th:if="${session.loginUser != null && session.loginUser.memType == '1'}" id="login" class="dona_write" type="button" onclick="location.href='/donation/donationWrite'">
 				후원글 작성
 			</button>
 		</div>
